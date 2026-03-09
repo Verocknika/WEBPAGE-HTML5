@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Veronika Michálková | Portfólio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <a href="index.html" class="logo-link"><span class="emoji">🦊</span><span class="name">Veronika</span></a>
+        <div class="menu-toggle" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+        <ul class="nav-links">
+            <li><a href="index.html" class="active">Domov</a></li>
+            <li><a href="omne.html">O mne</a></li>
+            <li><a href="skusenosti.html">Skúsenosti</a></li>
+            <li><a href="znalosti.html">Znalosti</a></li>
+            <li><a href="kontakt.html">Kontakt</a></li>
+        </ul>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-container">
+            <div class="hero-image">
+                <div class="profile-circle"><img src="foto/IMG_5185.jpg" alt="Veronika"></div>
+            </div>
+            <div class="hero-content">
+                <h1>Ahoj, ja som <span>Veronika</span></h1>
+                <p>Moja cesta spája analytické myslenie s vášňou pre hory. Pozrite sa, čo všetko som sa na tejto ceste naučila.</p>
+                <div class="hero-btns">
+                    <a href="omne.html" class="btn primary">Spoznaj môj svet</a>
+                    <a href="kontakt.html" class="btn secondary">Kontaktuj ma</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <script>
+        function toggleMenu() { document.querySelector('.nav-links').classList.toggle('active'); }
+    </script>
+</body>
+</html>
