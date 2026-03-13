@@ -80,3 +80,13 @@ html { overflow-y: scroll; }
     .hero-container { flex-direction: column; text-align: center; gap: 30px; }
     .hero-content h1 { font-size: 2.5rem; }
 }
+.navbar-logo {
+    height: 45px;      /* Zmenší líšku na primeranú veľkosť */
+    width: auto;       /* Zachová pomer strán */
+    display: block;    /* Odstráni medzeru pod obrázkom */
+    transition: transform 0.3s ease;
+}
+
+.logo-link:hover .navbar-logo {
+    transform: scale(1.1) rotate(-5deg); /* Pekný efekt pri prejdení myšou */
+}
