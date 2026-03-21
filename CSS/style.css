@@ -47,15 +47,6 @@ html { overflow-y: scroll; }
 .secondary { border: 2px solid #e67e22; color: #e67e22; background: transparent; }
 .secondary:hover { transform: translateY(-3px); background: rgba(230, 126, 34, 0.05); }
 
-/* Vylepšený Formulár */
-.modern-form { text-align: left; max-width: 600px; margin: 0 auto; }
-.form-group { margin-bottom: 20px; }
-.form-group label { display: block; margin-bottom: 8px; font-weight: 600; color: #444; }
-.form-group input, .form-group textarea {
-    width: 100%; padding: 12px; border: 2px solid #eee; border-radius: 10px; font-size: 1rem; transition: 0.3s; background: #fafafa;
-}
-.form-group input:focus, .form-group textarea:focus { border-color: #e67e22; outline: none; background: #fff; }
-.file-input { border: 1px dashed #e67e22 !important; padding: 10px !important; }
 
 /* Responzivita */
 @media (max-width: 900px) {
