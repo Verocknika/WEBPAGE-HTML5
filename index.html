@@ -1,52 +1,45 @@
 <!DOCTYPE html>
 <html lang="sk">
 <head>
-    <link rel="icon" type="image/png" href="../favicon/foxina.png"> <!-- Favicon pre všetky zariadenia -->
-
+    <link rel="icon" type="image/png" href="favicon/foxina.png">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Veronika | Portfólio</title>
-    <link rel="stylesheet" href="../CSS/style.css">
-    <link rel="stylesheet" href="../CSS/index.css">
-
+    <link rel="stylesheet" href="CSS/style.css">
+    <link rel="stylesheet" href="CSS/index.css">
 </head>
 <body>
     <nav class="navbar">
-        <!-- navbar logo foxina.png -->
-        <a href="../index.html" class="logo-link">
-            <img src="../favicon/foxina.png" alt="Veronika" class="navbar-logo">
+        <a href="index.html" class="logo-link">
+            <img src="favicon/foxina.png" alt="Veronika" class="navbar-logo">
             <span class="name">Veronika</span>
         </a>
-            <!-- -->
-
-</a>        <div class="menu-toggle" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+        <div class="menu-toggle" onclick="toggleMenu()"><span></span><span></span><span></span></div>
         <ul class="nav-links">
-            <li><a href="../index.html" class="active">Domov</a></li>
-            <li><a href="../HTML/omne.html">O mne</a></li>
-            <li><a href="../HTML/znalosti.html">Znalosti</a></li>
-            <li><a href="../HTML/skusenosti.html">Skúsenosti</a></li>
-            <li><a href="../HTML/kontakt.html">Kontakt</a></li>
+            <li><a href="index.html" class="active">Domov</a></li>
+            <li><a href="HTML/omne.html">O mne</a></li>
+            <li><a href="HTML/znalosti.html">Znalosti</a></li>
+            <li><a href="HTML/skusenosti.html">Skúsenosti</a></li>
+            <li><a href="HTML/kontakt.html">Kontakt</a></li>
         </ul>
     </nav>
 
     <header class="hero">
         <div class="hero-container">
             <div class="hero-image">
-                <div class="profile-circle"><img src="foto/IMG_5185.jpg" alt="Veronika"></div>
+                <div class="profile-circle"><img src="PICTURES/foto/IMG_5185.jpg" alt="Veronika"></div>
             </div>
             <div class="hero-content">
                 <h1>Ahoj, ja som <span>Veronika</span></h1>
                 <p>Moja cesta spája analytické myslenie s vášňou pre hory. Pozrite sa, čo všetko som sa na tejto ceste naučila.</p>
                 <div class="hero-btns">
-                    <a href="../HTML/omne.html" class="btn primary">Spoznaj môj svet</a>
-                    <a href="../HTML/kontakt.html" class="btn secondary">Kontaktuj ma</a>
+                    <a href="HTML/omne.html" class="btn primary">Spoznaj môj svet</a>
+                    <a href="HTML/kontakt.html" class="btn secondary">Kontaktuj ma</a>
                 </div>
             </div>
         </div>
     </header>
 
-    <script>
-        function toggleMenu() { document.querySelector('.nav-links').classList.toggle('active'); }
-    </script>
+    <script src="JS/main.js"></script>
 </body>
 </html>
