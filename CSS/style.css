@@ -40,7 +40,7 @@ main {
     width: 100%;
 }
 
-/* 3. NAVIGÁCIA - Profesionálny Desktop Layout */
+/* 3. NAVIGÁCIA - Stabilný Flexbox */
 .navbar {
     display: flex; 
     justify-content: space-between; 
@@ -80,7 +80,8 @@ main {
 .nav-links { 
     display: flex; 
     list-style: none; 
-    gap: 20px; /* KOMPAKTNÁ MEDZERA PRE DESKTOP */
+    /* Fixná kompaktná medzera pre všetky desktopy */
+    gap: 20px; 
     margin: 0;
     padding: 0;
     align-items: center;
@@ -208,24 +209,26 @@ footer {
     .footer-socials-list { align-items: center; }
 }
 
-/* 7. RESPONZIVITA - ŠPECIÁLNE PRE VYSOKÉ ROZLÍŠENIA */
+/* 7. RESPONZIVITA - VYSOKÉ ROZLÍŠENIA (Optimálne pre TV aj Desktop) */
 @media (min-width: 1400px) {
     .navbar {
         padding: 1.3rem 10%;
     }
 
     .container, .footer-container {
-        max-width: 1300px;
+        max-width: 1200px; /* Kompaktnejšie zobrazenie na širokom monitore */
     }
 
     .nav-links {
-        gap: 30px; /* MIERNE ZVÄČŠENIE PRE ŠIROKÉ MONITORY */
+        /* Tu držíme 20px pre desktop. Ak to chceš ešte bližšie, daj 15px. */
+        gap: 20px; 
     }
 }
 
+/* ŠPECIÁLNE LEN PRE OBROVSKÉ 4K TV */
 @media (min-width: 2500px) {
     .nav-links {
-        gap: 45px; /* DOSTATOČNÝ PRIESTOR LEN PRE 4K TELEVÍZORY */
+        gap: 40px; /* Zväčšený rozostup len pre televízory */
     }
     
     .navbar {
