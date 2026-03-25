@@ -33,11 +33,6 @@
     object-fit: cover; /* Obrázok vyplní štvorec bez deformácie */
 }
 
-/* Jemný hover efekt na obrázok (konzistentný s webom) */
-.exp-row:hover .exp-img-box {
-    transform: scale(1.03);
-}
-
 /* --- 2. BOX: Dlhý popis (Zjednotený box) --- */
 .exp-info-box {
     flex: 1; /* Vyplní všetok zostávajúci priestor v riadku */
