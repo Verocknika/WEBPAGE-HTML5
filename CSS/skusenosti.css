@@ -2,8 +2,8 @@
 .experience-list {
     display: flex;
     flex-direction: column;
-    gap: 30px; /* Rozostup medzi riadkami */
-    max-width: 1200px; /* Zarovnané s hobby-grid pre konzistenciu */
+    gap: 30px; 
+    max-width: 1200px;
     margin: 0 auto;
     padding-bottom: 50px;
 }
@@ -11,51 +11,51 @@
 /* --- Jeden riadok skúsenosti --- */
 .exp-row {
     display: flex;
-    align-items: stretch; /* Zabezpečí, aby mali oba boxy rovnakú výšku */
-    gap: 20px; /* Medzera medzi obrázkom a popisom */
+    align-items: stretch; 
+    gap: 3%; /* Pružná medzera medzi boxmi */
     width: 100%;
 }
 
-/* --- 1. BOX: Štvorcový obrázok (Presná kópia rozmerov z omne.css) --- */
+/* --- 1. BOX: Obrázok (Adaptívna šírka pre tablety) --- */
 .exp-img-box {
-    flex: 0 0 300px; /* Fixná šírka 300px (neberie viac, ani sa nezmenšuje) */
-    height: 300px;    /* Fixná výška 300px pre dokonalý štvorec */
+    flex: 0 0 25%;    /* Obrázok zaberá fixných 25% šírky riadku */
+    min-width: 200px; /* Minimálna šírka, aby fotka zostala čitateľná */
+    height: 300px;    
     border-radius: 15px;
     overflow: hidden;
     box-shadow: 0 4px 15px rgba(0,0,0,0.1);
     transition: transform 0.3s ease;
-    position: relative; /* Pre prípadný hover efekt neskôr */
+    position: relative;
 }
 
 .exp-img-box img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Obrázok vyplní štvorec bez deformácie */
+    object-fit: cover;
 }
 
-/* --- 2. BOX: Dlhý popis (Zjednotený box) --- */
+/* --- 2. BOX: Dlhý popis (Vyplní zvyšok miesta) --- */
 .exp-info-box {
-    flex: 1; /* Vyplní všetok zostávajúci priestor v riadku */
+    flex: 1; 
     background: white;
-    padding: 30px;
+    padding: 25px;    /* Mierne zmenšený padding pre viac miesta na text */
     border-radius: 15px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05); /* Jemnejší tieň */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
     display: flex;
     flex-direction: column;
-    justify-content: center; /* Vycentruje text vertikálne */
+    justify-content: center;
     transition: box-shadow 0.3s ease;
-    border-left: 5px solid transparent; /* Priprava na hover */
+    border-left: 5px solid transparent;
 }
 
-/* Hover efekt pre popisný box */
 .exp-row:hover .exp-info-box {
     box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-    border-left: 5px solid #e67e22; /* Oranžový pásik pri hoveri */
+    border-left: 5px solid #e67e22;
 }
 
-/* Štýlovanie textu v popise */
+/* Štýlovanie textu */
 .exp-info-box h3 {
-    font-size: 1.6rem;
+    font-size: clamp(1.2rem, 2vw, 1.6rem); /* Responzívna veľkosť nadpisu */
     color: #333;
     margin-bottom: 10px;
 }
@@ -70,21 +70,21 @@
 
 .exp-info-box p {
     color: #555;
-    font-size: 1rem;
-    line-height: 1.7;
+    font-size: clamp(0.9rem, 1.1vw, 1rem); /* Text sa mierne zmenší na menších displejoch */
+    line-height: 1.6;
 }
 
 /* --- RESPONZIVITA PRE MOBILY (Pod 768px) --- */
 @media (max-width: 768px) {
     .exp-row {
-        flex-direction: column; /* Boxy pôjdu pod seba */
+        flex-direction: column; /* Na mobile idú boxy pod seba pre maximálne pohodlie */
         gap: 15px;
     }
 
     .exp-img-box {
-        flex: 0 0 auto; /* Zrušíme fixnú šírku */
-        width: 100%;    /* Obrázok bude na celú šírku */
-        height: 250px;   /* Na mobile trochu zmenšíme výšku, aby nezaberal celú obrazovku */
+        flex: 0 0 auto;
+        width: 100%;    
+        height: 250px;  
     }
 
     .exp-info-box {
