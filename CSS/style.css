@@ -40,17 +40,25 @@ main {
     width: 100%;
 }
 
-/* 3. NAVIGÁCIA - Stabilný Flexbox */
+/* 3. NAVIGÁCIA */
 .navbar {
-    display: flex; 
-    justify-content: space-between; 
-    align-items: center;
-    padding: 1.2rem 10%; 
-    background: white; 
+    background: white;
     box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-    position: sticky; 
-    top: 0; 
+    position: sticky;
+    top: 0;
     z-index: 1000;
+    width: 100%;
+}
+
+.navbar-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 5%;
+    width: 100%;
+    height: 80px;
 }
 
 .logo-link { 
@@ -77,32 +85,42 @@ main {
     transform: scale(1.1) rotate(-5deg);
 }
 
-.nav-links { 
-    display: flex; 
-    list-style: none; 
-    /* Fixná kompaktná medzera pre všetky desktopy */
-    gap: 20px; 
+.nav-links {
+    display: flex;
+    list-style: none;
     margin: 0;
     padding: 0;
-    align-items: center;
 }
 
 .nav-links li {
     display: flex;
+    align-items: center;
 }
 
-.nav-links a { 
-    text-decoration: none; 
+/* RESET FARIEB + FIXNÉ MEDZERY */
+.nav-links a,
+.nav-links a:link,
+.nav-links a:visited,
+.nav-links a:active {
+    text-decoration: none;
     color: #555; 
-    font-weight: 500; 
-    transition: 0.3s; 
-    padding: 5px 0; 
-    white-space: nowrap; 
+    font-weight: 500;
+    transition: color 0.3s ease;
+    white-space: nowrap;
+    display: block;
+    padding: 10px 15px; 
+    font-size: 1.05rem;
 }
 
-.nav-links a:hover, .nav-links a.active { 
-    color: #e67e22; 
-    border-bottom: 2px solid #e67e22; 
+/* HOVER - Len zmena farby písma */
+.nav-links a:hover {
+    color: #e67e22;
+}
+
+/* ACTIVE - Oranžové písmo + Oranžová linka */
+.nav-links a.active {
+    color: #e67e22;
+    border-bottom: 2px solid #e67e22;
 }
 
 /* 4. KARTY A TLAČIDLÁ */
@@ -187,8 +205,8 @@ footer {
 .menu-toggle span { width: 25px; height: 3px; background: #e67e22; border-radius: 2px; }
 
 @media (max-width: 900px) {
-    .navbar { padding: 1rem 5%; }
-    .menu-toggle { display: flex; }
+    .navbar { padding: 0; }
+    .menu-toggle { display: flex; margin-right: 20px; }
     .nav-links {
         display: none; 
         flex-direction: column; 
@@ -199,43 +217,38 @@ footer {
         background: white; 
         padding: 20px; 
         box-shadow: 0 5px 10px rgba(0,0,0,0.1);
-        gap: 1.2rem;
     }
     .nav-links.active { display: flex; }
+    .nav-links a { padding: 15px; text-align: center; width: 100%; }
 }
 
-@media (max-width: 768px) {
-    .footer-container { display: flex; flex-direction: column; gap: 15px; }
-    .footer-socials-list { align-items: center; }
-}
-
-/* 7. RESPONZIVITA - VYSOKÉ ROZLÍŠENIA (Optimálne pre TV aj Desktop) */
-@media (min-width: 1400px) {
-    .navbar {
-        padding: 1.3rem 10%;
+/* 7. RESPONZIVITA - VYSOKÉ ROZLÍŠENIA (TV 43") */
+@media (min-width: 1920px) {
+    .navbar-inner {
+        max-width: 1500px;
+        height: 100px;
     }
 
-    .container, .footer-container {
-        max-width: 1200px; /* Kompaktnejšie zobrazenie na širokom monitore */
+    .nav-links a, 
+    .nav-links a:visited {
+        padding: 15px 30px; 
+        font-size: 1.3rem;
     }
-
-    .nav-links {
-        /* Tu držíme 20px pre desktop. Ak to chceš ešte bližšie, daj 15px. */
-        gap: 20px; 
+    
+    .navbar-logo {
+        height: 55px;
     }
 }
 
-/* ŠPECIÁLNE LEN PRE OBROVSKÉ 4K TV */
+/* 8. ŠPECIÁLNE PRE 4K TV (2500px+) */
 @media (min-width: 2500px) {
-    .nav-links {
-        gap: 40px; /* Zväčšený rozostup len pre televízory */
+    .navbar-inner {
+        max-width: 1800px;
     }
-    
-    .navbar {
-        padding: 1.8rem 15%;
-    }
-    
-    body {
-        font-size: 1.15rem;
+
+    .nav-links a, 
+    .nav-links a:visited {
+        padding: 20px 45px; 
+        font-size: 1.6rem;
     }
 }
