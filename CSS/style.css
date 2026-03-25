@@ -40,7 +40,7 @@ main {
     width: 100%;
 }
 
-/* 3. NAVIGÁCIA (OPRAVENÁ) */
+/* 3. NAVIGÁCIA - Profesionálny Desktop Layout */
 .navbar {
     display: flex; 
     justify-content: space-between; 
@@ -53,8 +53,18 @@ main {
     z-index: 1000;
 }
 
-.logo-link { text-decoration: none; display: flex; align-items: center; gap: 8px; }
-.name { font-size: 1.3rem; font-weight: bold; color: #e67e22; }
+.logo-link { 
+    text-decoration: none; 
+    display: flex; 
+    align-items: center; 
+    gap: 8px; 
+}
+
+.name { 
+    font-size: 1.3rem; 
+    font-weight: bold; 
+    color: #e67e22; 
+}
 
 .navbar-logo {
     height: 45px;
@@ -70,7 +80,14 @@ main {
 .nav-links { 
     display: flex; 
     list-style: none; 
-    gap: 30px; /* Fixná medzera pre PC */
+    gap: 20px; /* KOMPAKTNÁ MEDZERA PRE DESKTOP */
+    margin: 0;
+    padding: 0;
+    align-items: center;
+}
+
+.nav-links li {
+    display: flex;
 }
 
 .nav-links a { 
@@ -79,6 +96,7 @@ main {
     font-weight: 500; 
     transition: 0.3s; 
     padding: 5px 0; 
+    white-space: nowrap; 
 }
 
 .nav-links a:hover, .nav-links a.active { 
@@ -180,6 +198,7 @@ footer {
         background: white; 
         padding: 20px; 
         box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+        gap: 1.2rem;
     }
     .nav-links.active { display: flex; }
 }
@@ -189,11 +208,10 @@ footer {
     .footer-socials-list { align-items: center; }
 }
 
-/* 7. RESPONZIVITA - OPRAVA PRE VEĽKÉ OBRAZOVKY (PC & TV) */
+/* 7. RESPONZIVITA - ŠPECIÁLNE PRE VYSOKÉ ROZLÍŠENIA */
 @media (min-width: 1400px) {
     .navbar {
-        padding: 1.2rem 10%; /* Stabilný padding namiesto calc */
-        justify-content: space-between;
+        padding: 1.3rem 10%;
     }
 
     .container, .footer-container {
@@ -201,21 +219,20 @@ footer {
     }
 
     .nav-links {
-        gap: 30px; /* Kompaktné medzery pre PC */
+        gap: 30px; /* MIERNE ZVÄČŠENIE PRE ŠIROKÉ MONITORY */
     }
 }
 
-/* Špeciálne len pre Ultra-Wide a 4K TV */
 @media (min-width: 2500px) {
     .nav-links {
-        gap: 50px; /* Väčšie medzery len na TV, aby texty nesplynuli */
+        gap: 45px; /* DOSTATOČNÝ PRIESTOR LEN PRE 4K TELEVÍZORY */
     }
     
     .navbar {
-        padding: 1.5rem 15%;
+        padding: 1.8rem 15%;
     }
-
+    
     body {
-        font-size: 1.1rem;
+        font-size: 1.15rem;
     }
 }
