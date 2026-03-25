@@ -1,46 +1,29 @@
-/* Hero sekcia - špecifické pre index.html */
+/* Hero sekcia - Adaptívna pre všetky displeje */
 .hero {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 60px 10%;
+    padding: clamp(40px, 8vh, 100px) 5%; /* Dynamický horný/dolný padding */
     min-height: 85vh;
 }
 
 .hero-container {
     display: flex;
     align-items: center;
-    gap: 60px;
-    max-width: 1100px;
+    gap: clamp(30px, 6vw, 100px); /* Medzera rastie s obrazovkou */
+    max-width: 1400px; /* Limit pre ultra-široké monitory a TV */
     width: 100%;
 }
 
-@media (min-width: 1400px) {
-    .hero {
-        padding: 60px calc((100% - 1300px) / 2);
-    }
-
-    .hero-container {
-        max-width: 1300px;
-    }
-
-    .profile-circle {
-        width: 360px;
-        height: 360px;
-    }
-
-    .hero-content h1 {
-        font-size: 4rem;
-    }
-}
-
 .profile-circle {
-    width: 300px;
-    height: 300px;
+    /* Fotka sa plynule mení od 250px na mobile po 450px na TV */
+    width: clamp(250px, 35vw, 450px);
+    height: clamp(250px, 35vw, 450px);
     border-radius: 50%;
     border: 8px solid #e67e22;
     overflow: hidden;
     box-shadow: 0 15px 35px rgba(230, 126, 34, 0.2);
+    flex-shrink: 0;
 }
 
 .profile-circle img {
@@ -49,44 +32,59 @@
     object-fit: cover;
 }
 
+.hero-content {
+    flex: 1;
+}
+
 .hero-content h1 {
-    font-size: 3.5rem;
+    /* Písmo: Min 2rem, Ideálne 5vw, Max 4.5rem */
+    font-size: clamp(2.2rem, 5vw, 4.5rem);
     margin-bottom: 20px;
+    line-height: 1.1;
 }
 
 .hero-content h1 span {
     color: #e67e22;
 }
 
+.hero-content p {
+    font-size: clamp(1rem, 1.2vw, 1.25rem);
+    max-width: 600px;
+}
+
 .hero-btns {
     display: inline-flex;
     gap: 15px;
-    margin-top: 25px;
+    margin-top: 30px;
+    flex-wrap: wrap; /* Aby sa na úzkych mobiloch nezlomili škaredo */
 }
 
-/* Responzivita hero sekcie */
-@media (max-width: 900px) {
+/* RESPONZIVITA */
+@media (max-width: 1024px) {
     .hero-container {
         flex-direction: column;
         text-align: center;
-        gap: 30px;
+        gap: 40px;
+    }
+    
+    .hero-content p {
+        margin: 0 auto;
     }
 
-    .hero-content h1 {
-        font-size: 2.5rem;
+    .hero-btns {
+        justify-content: center;
     }
 }
 
-@media (max-width: 450px) {
+@media (max-width: 480px) {
     .hero-btns {
         display: flex;
         flex-direction: column;
-        align-items: center;
-        gap: 15px;
-    }
-
-    .btn {
         width: 100%;
-        max-width: 250px;
+    }
+    
+    .hero-btns .btn {
+        width: 100%;
+        text-align: center;
     }
 }
