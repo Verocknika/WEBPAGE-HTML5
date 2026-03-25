@@ -1,4 +1,4 @@
-/* 1. ZÁKLADNÉ NASTAVENIA PRE CELÚ STRÁNKU */
+/* 1. ZÁKLADNÉ NASTAVENIA */
 * { 
     margin: 0; 
     padding: 0; 
@@ -15,16 +15,15 @@ body {
     background-color: #fdfdfd; 
     color: #333; 
     line-height: 1.6;
-    /* Flexbox zabezpečí, aby footer zostal na spodku, ak je málo obsahu */
     display: flex;
     flex-direction: column;
     min-height: 100vh; 
 }
 
-/* 2. KONTAJNERY A OBSAH */
+/* 2. KONTAJNERY */
 main {
-    flex: 1;           /* Vyplní voľné miesto a odtlačí footer dole */
-    width: 100%;       /* OPRAVA: Vráti boxom ich plnú šírku */
+    flex: 1;
+    width: 100%;
 }
 
 .container {
@@ -41,7 +40,7 @@ main {
     width: 100%;
 }
 
-/* 3. NAVIGÁCIA */
+/* 3. NAVIGÁCIA (OPRAVENÁ) */
 .navbar {
     display: flex; 
     justify-content: space-between; 
@@ -52,29 +51,6 @@ main {
     position: sticky; 
     top: 0; 
     z-index: 1000;
-}
-
-/* Obmedzenie šírky obsahu navbaru na veľkých obrazovkách */
-.navbar > * {
-    max-width: none;
-}
-
-@media (min-width: 1400px) {
-    .navbar {
-        padding: 1.2rem calc((100% - 1300px) / 2);
-    }
-
-    .container {
-        max-width: 1300px;
-    }
-
-    .narrow-container {
-        max-width: 1000px;
-    }
-
-    .footer-container {
-        max-width: 1300px;
-    }
 }
 
 .logo-link { text-decoration: none; display: flex; align-items: center; gap: 8px; }
@@ -91,9 +67,24 @@ main {
     transform: scale(1.1) rotate(-5deg);
 }
 
-.nav-links { display: flex; list-style: none; gap: 25px; }
-.nav-links a { text-decoration: none; color: #555; font-weight: 500; transition: 0.3s; padding: 5px 0; }
-.nav-links a:hover, .nav-links a.active { color: #e67e22; border-bottom: 2px solid #e67e22; }
+.nav-links { 
+    display: flex; 
+    list-style: none; 
+    gap: 30px; /* Fixná medzera pre PC */
+}
+
+.nav-links a { 
+    text-decoration: none; 
+    color: #555; 
+    font-weight: 500; 
+    transition: 0.3s; 
+    padding: 5px 0; 
+}
+
+.nav-links a:hover, .nav-links a.active { 
+    color: #e67e22; 
+    border-bottom: 2px solid #e67e22; 
+}
 
 /* 4. KARTY A TLAČIDLÁ */
 .card {
@@ -122,46 +113,34 @@ main {
 .secondary { border: 2px solid #e67e22; color: #e67e22; background: transparent; }
 .secondary:hover { transform: translateY(-3px); background: rgba(230, 126, 34, 0.05); }
 
-/* --- PÄTIČKA (FOOTER) - Finálna responzívna verzia --- */
+/* 5. PÄTIČKA */
 footer {
     background: #fff;
     padding: 25px 0;
     text-align: center;
     border-top: 1px solid #eee;
     width: 100%;
-    margin-top: auto; /* Tlačí footer dole */
+    margin-top: auto;
 }
 
 .footer-container {
     display: grid;
-    grid-template-columns: 1fr auto 1fr; /* 3 stĺpce pre desktop */
+    grid-template-columns: 1fr auto 1fr;
     align-items: center;
     max-width: 1100px;
     margin: 0 auto;
     padding: 0 20px;
 }
 
-.footer-content {
-    grid-column: 2; /* Copyright vždy v strede */
-}
+.footer-content { grid-column: 2; }
+.footer-content p { color: #555; font-size: 0.85rem; margin: 0; }
+.footer-content span { color: #e67e22; font-weight: 600; }
 
-.footer-content p {
-    color: #555;
-    font-size: 0.85rem;
-    margin: 0;
-}
-
-.footer-content span {
-    color: #e67e22; /* Oranžová Veronika */
-    font-weight: 600;
-}
-
-/* Pravá časť so zoznamom */
 .footer-socials-list {
     grid-column: 3;
     display: flex;
     flex-direction: column;
-    align-items: flex-end; /* Na desktope zarovnané vpravo */
+    align-items: flex-end;
     gap: 8px;
 }
 
@@ -172,40 +151,19 @@ footer {
     display: flex;
     align-items: center;
     transition: 0.3s ease;
-    width: 100px; /* Fixná šírka pre zarovnanie textu pod seba */
+    width: 100px;
 }
 
 .footer-socials-list i {
     color: #e67e22;
     font-size: 1.1rem;
-    width: 20px; /* Fixný priestor pre ikonu */
+    width: 20px;
     display: inline-flex;
     justify-content: center;
     margin-right: 10px;
 }
 
-.footer-socials-list a:hover {
-    color: #e67e22;
-}
-
-/* --- OPRAVA PRE MOBILNÉ ZOBRAZENIE --- */
-@media (max-width: 768px) {
-    .footer-container {
-        display: flex; /* Zmena z Gridu na Flexbox */
-        flex-direction: column; /* Prvky pod sebou */
-        gap: 15px; /* Rozostup medzi textom a zoznamom */
-    }
-
-    .footer-socials-list {
-        align-items: center; /* Vycentrovanie zoznamu na stred obrazovky */
-    }
-
-    .footer-socials-list a {
-        justify-content: flex-start; /* Udrží ikonu a text pokope v rámci odkazu */
-        width: 100px; /* Zachová fixnú šírku, aby texty "L" a "G" boli pod sebou */
-    }
-}
-/* 6. RESPONZIVITA (MOBILNÁ VERZIA) */
+/* 6. RESPONZIVITA - MOBIL */
 .menu-toggle { display: none; flex-direction: column; cursor: pointer; gap: 5px; }
 .menu-toggle span { width: 25px; height: 3px; background: #e67e22; border-radius: 2px; }
 
@@ -224,4 +182,40 @@ footer {
         box-shadow: 0 5px 10px rgba(0,0,0,0.1);
     }
     .nav-links.active { display: flex; }
+}
+
+@media (max-width: 768px) {
+    .footer-container { display: flex; flex-direction: column; gap: 15px; }
+    .footer-socials-list { align-items: center; }
+}
+
+/* 7. RESPONZIVITA - OPRAVA PRE VEĽKÉ OBRAZOVKY (PC & TV) */
+@media (min-width: 1400px) {
+    .navbar {
+        padding: 1.2rem 10%; /* Stabilný padding namiesto calc */
+        justify-content: space-between;
+    }
+
+    .container, .footer-container {
+        max-width: 1300px;
+    }
+
+    .nav-links {
+        gap: 30px; /* Kompaktné medzery pre PC */
+    }
+}
+
+/* Špeciálne len pre Ultra-Wide a 4K TV */
+@media (min-width: 2500px) {
+    .nav-links {
+        gap: 50px; /* Väčšie medzery len na TV, aby texty nesplynuli */
+    }
+    
+    .navbar {
+        padding: 1.5rem 15%;
+    }
+
+    body {
+        font-size: 1.1rem;
+    }
 }
